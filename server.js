@@ -5,7 +5,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 
 
 const app = express();
-const PORT = 7001;
+const PORT = 7011;
 
 console.log('Starting frontend server...');
 
@@ -20,6 +20,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+
+app.use('/api/test', createProxyMiddleware({
+  target: 'http://172.29.0.22:7001',
+  changeOrigin: true,
+}));
 
 app.listen(PORT, () => {
   console.log(`Frontend running on port ${PORT}`);
