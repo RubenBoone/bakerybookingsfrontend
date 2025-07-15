@@ -21,11 +21,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-app.use('/api/test', createProxyMiddleware({
-  target: 'http://172.29.0.22:7001',
-  changeOrigin: true,
-}));
-
 app.listen(PORT, () => {
   console.log(`Frontend running on port ${PORT}`);
 });
