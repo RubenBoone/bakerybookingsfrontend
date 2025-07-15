@@ -10,6 +10,7 @@ const app = express();
 const PORT = 7011;
 
 console.log('Starting frontend server...');
+console.log(`Using API URL: ${process.env.API_URL}`);
 
 // Fix __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
