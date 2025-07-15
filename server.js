@@ -2,7 +2,9 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createProxyMiddleware } from 'http-proxy-middleware';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 const app = express();
 const PORT = 7011;
@@ -22,7 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', createProxyMiddleware({
-  target: 'http://172.29.0.22:7001',
+  target: process.env.API_URL,
   changeOrigin: true,
 }));
 
