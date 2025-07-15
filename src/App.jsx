@@ -21,7 +21,10 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <button onClick={async () => { let answer = await fetch('http://localhost:7001/api/test'); console.log(await answer.json()) }}>
+        <button onClick={async () => {
+          let answer = await fetch('http://172.29.0.22:7001/api/test');
+          console.log(await answer.json())
+        }}>
           test backend
         </button>
         <p>
