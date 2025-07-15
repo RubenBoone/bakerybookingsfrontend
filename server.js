@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/test', createProxyMiddleware({
-  target: 'http://c6fea3bd-8056-436f-ae9d-ffc89fa1d249:7001',
+  target: 'http://172.29.0.22:7001',
   changeOrigin: true,
 }));
 
