@@ -22,7 +22,7 @@ function App() {
           count is {count}
         </button>
         <button onClick={async () => {
-          let answer = await fetch('https://bakery.dontask.dev/api/test');
+          let answer = await fetch('/api/test');
           console.log(await answer.json())
         }}>
           test backend

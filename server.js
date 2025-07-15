@@ -17,11 +17,11 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Client-side routing fallback
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-app.use('/api/test', createProxyMiddleware({
+app.use('/api', createProxyMiddleware({
   target: 'http://172.29.0.22:7001',
   changeOrigin: true,
 }));
