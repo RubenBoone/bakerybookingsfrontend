@@ -21,6 +21,9 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <button onClick={async () => { let answer = await fetch('http://localhost:7001/api/test'); console.log(await answer.json()) }}>
+          test backend
+        </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

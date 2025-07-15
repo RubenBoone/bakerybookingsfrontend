@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const PORT = 7011;
+const PORT = 7001;
 
 console.log('Starting frontend server...');
 
@@ -18,6 +18,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+
+app.use('/api/test', createProxyMiddleware({
+  target: 'http://c6fea3bd-8056-436f-ae9d-ffc89fa1d249:7001',
+  changeOrigin: true,
+}));
 
 app.listen(PORT, () => {
   console.log(`Frontend running on port ${PORT}`);
