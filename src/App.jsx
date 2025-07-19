@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch('http://192.168.1.9:7001/products');
+      const response = await fetch("/api/products");
       const data = await response.json();
       setProducts(data);
     };
