@@ -10,7 +10,7 @@ function Barcode({ value }) {
                 format: 'CODE128',
                 lineColor: '#000',
                 width: 2,
-                height: 80,
+                height: 20,
                 displayValue: true,
             });
         }
